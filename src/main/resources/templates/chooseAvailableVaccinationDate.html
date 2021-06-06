@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dostępne terminy</title>
+</head>
+<body>
+<h2>Dostępne terminy</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th> Miasto </th>
+        <th> Od </th>
+        <th> Do </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${vaccinationReservations.empty}">
+        <td colspan="2"> Brak wolnych terminów</td>
+    </tr>
+    <tr th:each="vaccinationReservation : ${vaccinationReservations}" th:object="${vaccinationReservation}">
+        <td><span th:text="${vaccinationReservation.vaccinationPoint.getCity()}"> </span></td>
+        <td><span th:text="${vaccinationReservation.begin}"> </span></td>
+        <td><span th:text="${vaccinationReservation.end}"> </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

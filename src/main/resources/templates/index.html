@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>System Szczepien</title>
+</head>
+    <body>
+        <h2>Witaj
+            <div sec:authentication="name">
+
+            </div>
+        </h2>
+        <br>
+        <a th:href="@{/logout}">Wyloguj</a>
+        <br>
+        <a th:href="@{/vaccination-points}">Wybor punktu szczpien</a>
+    </body>
+</html>

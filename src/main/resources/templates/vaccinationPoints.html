@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Punkty Szczepien</title>
+</head>
+<body>
+<h2>Punkty Szczepien</h2>
+
+
+<table>
+    <thead>
+    <tr>
+        <th> Miasto </th>
+        <th> Kod pocztowy </th>
+        <th> Ulica </th>
+        <th> Wybierz </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${vaccinationPoints.empty}">
+        <td colspan="2"> Brak dostepnych punktow szczepien</td>
+    </tr>
+    <tr th:each="vaccinationPoint : ${vaccinationPoints}" th:object="${vaccinationPoint}">
+        <td><span th:text="${vaccinationPoint.city}"> </span></td>
+        <td><span th:text="${vaccinationPoint.postalCode}"> </span></td>
+        <td><span th:text="${vaccinationPoint.street}"> </span></td>
+        <td><a th:href="@{/vaccination-points/available-dates/{vaccinationPointId}(vaccinationPointId=${vaccinationPoint.id})}"> X </a>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
