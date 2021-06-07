@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Zarezerwowane terminy</title>
+</head>
+<body>
+<h1><a href="http://localhost:8080/index"> HOME </a></h1>
+<br>
+<h2>Zarezerwowane terminy</h2>
+
+
+<table>
+    <thead>
+    <tr>
+        <th> Miasto </th>
+        <th> Kod pocztowy </th>
+        <th> Ulica </th>
+        <th> Od </th>
+        <th> Do </th>
+        <th> Zarezerwowane </th>
+        <th> Usun Termin </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${vaccinations.empty}">
+        <td colspan="2"> Brak zarezerwowanych szczepien</td>
+    </tr>
+    <tr th:each="vaccination : ${vaccinations}" th:object="${vaccination}">
+        <td><span th:text="${vaccination.vaccinationPoint.city}"> </span></td>
+        <td><span th:text="${vaccination.vaccinationPoint.postalCode}"> </span></td>
+        <td><span th:text="${vaccination.vaccinationPoint.street}"> </span></td>
+        <td><span th:text="${vaccination.vaccinationReservation.begin}"> </span></td>
+        <td><span th:text="${vaccination.vaccinationReservation.end}"> </span></td>
+        <td><span th:text="${vaccination.vaccinationReservation.reserved}"> </span></td>
+        <td><a th:href="@{/vaccination/delete/{vaccinationId}/{vaccinationReservationId}(vaccinationId=${vaccination.id}, vaccinationReservationId=${vaccination.vaccinationReservation.id})}"> X </a>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

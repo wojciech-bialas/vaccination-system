@@ -41,7 +41,6 @@ public class UsersInitialization {
                 "505952012",
                 "DXc-2S21-DV",
                 new HashSet<>(Collections.singletonList(userRole)),
-                Collections.emptySet(),
                 Collections.emptySet()
         );
 

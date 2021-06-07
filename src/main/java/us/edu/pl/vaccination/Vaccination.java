@@ -19,10 +19,12 @@ public class Vaccination {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private LocalDateTime date;
 
     @OneToOne
     private VaccinationPoint vaccinationPoint;
+
+    @OneToOne
+    private VaccinationReservation vaccinationReservation;
 
     private boolean qualified;
     private boolean vaccinated;

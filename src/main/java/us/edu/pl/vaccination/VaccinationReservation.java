@@ -27,10 +27,6 @@ public class VaccinationReservation {
     private boolean reserved;
 
     @ManyToOne
-    @JoinColumn(name="user_pesel", nullable=true)
-    private User user;
-
-    @ManyToOne
     @JoinColumn(name="vaccination_point_id", nullable=false)
     private VaccinationPoint vaccinationPoint;
 

@@ -44,7 +44,4 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
     private Set<Vaccination> vaccinations;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
-    private Set<VaccinationReservation> vaccinationReservations;
-
 }

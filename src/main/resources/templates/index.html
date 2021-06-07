@@ -4,14 +4,21 @@
     <title>System Szczepien</title>
 </head>
     <body>
+    <h1><a href="http://localhost:8080/index"> HOME </a></h1>
+    <br>
         <h2>Witaj
             <div sec:authentication="name">
 
             </div>
         </h2>
         <br>
-        <a th:href="@{/logout}">Wyloguj</a>
         <br>
         <a th:href="@{/vaccination-points}">Wybor punktu szczpien</a>
+        <br>
+        <br>
+        <a th:href="@{/vaccination/findAll}">Zarezerwowane terminy szczepien</a>
+        <br>
+        <br>
+        <a th:href="@{/logout}">Wyloguj</a>
     </body>
 </html>

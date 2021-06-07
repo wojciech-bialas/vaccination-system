@@ -59,7 +59,6 @@ public class VaccinationPointsInitalization {
                 LocalDateTime.of(2021, 6, 21, 8, 30),
                 LocalDateTime.of(2021, 6, 21, 9, 30),
                 false,
-                null,
                 krakow
         );
 
@@ -68,7 +67,6 @@ public class VaccinationPointsInitalization {
                 LocalDateTime.of(2021, 6, 21, 9, 30),
                 LocalDateTime.of(2021, 6, 21, 10, 30),
                 false,
-                null,
                 katowice
         );
 
@@ -77,7 +75,6 @@ public class VaccinationPointsInitalization {
                 LocalDateTime.of(2021, 6, 21, 10, 30),
                 LocalDateTime.of(2021, 6, 21, 11, 30),
                 false,
-                null,
                 katowice
         );
 
@@ -86,7 +83,6 @@ public class VaccinationPointsInitalization {
                 LocalDateTime.of(2021, 6, 22, 8, 30),
                 LocalDateTime.of(2021, 6, 22, 9, 30),
                 false,
-                null,
                 katowice
         );
 
@@ -95,7 +91,6 @@ public class VaccinationPointsInitalization {
                 LocalDateTime.of(2021, 6, 22, 8, 30),
                 LocalDateTime.of(2021, 6, 22, 9, 30),
                 false,
-                null,
                 warsaw
         );
 
@@ -104,7 +99,6 @@ public class VaccinationPointsInitalization {
                 LocalDateTime.of(2021, 6, 22, 8, 30),
                 LocalDateTime.of(2021, 6, 22, 9, 30),
                 false,
-                null,
                 warsaw
         );
 
