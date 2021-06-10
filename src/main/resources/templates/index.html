@@ -2,23 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>System Szczepien</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
-    <body>
-    <h1><a href="http://localhost:8080/index"> HOME </a></h1>
-    <br>
-        <h2>Witaj
-            <div sec:authentication="name">
 
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h1><a href="http://localhost:8080/index"> </a></h1>
+            <br>
+            <h2>Witaj
+                <div sec:authentication="name">
+
+                </div>
+            </h2>
+            <br>
+            <br>
+            <div class="d-grid gap-2">
+                <a class="btn btn-primary" th:href="@{/vaccination-points}">Wybor punktu szczpien</a>
+                <br>
+                <br>
+                <a class="btn btn-primary" th:href="@{/vaccination/findAll}">Zarezerwowane terminy szczepien</a>
+                <br>
+                <br>
+                <a class="btn btn-primary" th:href="@{/logout}">Wyloguj</a>
             </div>
-        </h2>
-        <br>
-        <br>
-        <a th:href="@{/vaccination-points}">Wybor punktu szczpien</a>
-        <br>
-        <br>
-        <a th:href="@{/vaccination/findAll}">Zarezerwowane terminy szczepien</a>
-        <br>
-        <br>
-        <a th:href="@{/logout}">Wyloguj</a>
-    </body>
+
+        </div>
+        <div class="col"></div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+                crossorigin="anonymous"></script>
+</body>
 </html>

@@ -2,32 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dostępne terminy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 </head>
 <body>
-<h1><a href="http://localhost:8080/index"> HOME </a></h1>
-<br>
-<h2>Dostępne terminy</h2>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h1><a href="http://localhost:8080/index"> Strona główna </a></h1>
+            <br>
+            <h2>Dostępne terminy</h2>
 
-<table>
-    <thead>
-    <tr>
-        <th> Miasto </th>
-        <th> Od </th>
-        <th> Do </th>
-        <th> Zarejestruj Termin</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${vaccinationReservations.empty}">
-        <td colspan="2"> Brak wolnych terminów</td>
-    </tr>
-    <tr th:each="vaccinationReservation : ${vaccinationReservations}" th:object="${vaccinationReservation}">
-        <td><span th:text="${vaccinationReservation.vaccinationPoint.getCity()}"> </span></td>
-        <td><span th:text="${vaccinationReservation.begin}"> </span></td>
-        <td><span th:text="${vaccinationReservation.end}"> </span></td>
-        <td><a th:href="@{/vaccination/register/{vaccinationPointId}/{vaccinationReservationId}(vaccinationPointId=${vaccinationReservation.vaccinationPoint.id}, vaccinationReservationId=${vaccinationReservation.id})}"> X </a>
-    </tr>
-    </tbody>
-</table>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col"> Miasto</th>
+                    <th scope="col"> Od</th>
+                    <th scope="col"> Do</th>
+                    <th scope="col"> Zarejestruj Termin</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${vaccinationReservations.empty}">
+                    <td colspan="2"> Brak wolnych terminów</td>
+                </tr>
+                <tr th:each="vaccinationReservation : ${vaccinationReservations}" th:object="${vaccinationReservation}">
+                    <td><span th:text="${vaccinationReservation.vaccinationPoint.getCity()}"> </span></td>
+                    <td><span th:text="${vaccinationReservation.begin}"> </span></td>
+                    <td><span th:text="${vaccinationReservation.end}"> </span></td>
+                    <td>
+                        <a  class="btn btn-primary"
+                                th:href="@{/vaccination/register/{vaccinationPointId}/{vaccinationReservationId}(vaccinationPointId=${vaccinationReservation.vaccinationPoint.id}, vaccinationReservationId=${vaccinationReservation.id})}">
+                            wybierz termin </a>
+                </tr>
+                </tbody>
+            </table></div>
+            <div class="col"></div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+
 </body>
 </html>

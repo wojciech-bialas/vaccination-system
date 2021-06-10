@@ -2,33 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Punkty Szczepien</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 </head>
 <body>
-<h1><a href="http://localhost:8080/index"> HOME </a></h1>
-<br>
-<h2>Punkty Szczepien</h2>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h1><a href="http://localhost:8080/index"> Strona główna </a></h1>
+            <br>
+            <h2>Punkty Szczepien</h2>
 
 
-<table>
-    <thead>
-    <tr>
-        <th> Miasto </th>
-        <th> Kod pocztowy </th>
-        <th> Ulica </th>
-        <th> Wybierz </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${vaccinationPoints.empty}">
-        <td colspan="2"> Brak dostepnych punktow szczepien</td>
-    </tr>
-    <tr th:each="vaccinationPoint : ${vaccinationPoints}" th:object="${vaccinationPoint}">
-        <td><span th:text="${vaccinationPoint.city}"> </span></td>
-        <td><span th:text="${vaccinationPoint.postalCode}"> </span></td>
-        <td><span th:text="${vaccinationPoint.street}"> </span></td>
-        <td><a th:href="@{/vaccination-points/available-dates/{vaccinationPointId}(vaccinationPointId=${vaccinationPoint.id})}"> X </a>
-    </tr>
-    </tbody>
-</table>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col"> Miasto</th>
+                    <th scope="col"> Kod pocztowy</th>
+                    <th scope="col"> Ulica</th>
+                    <th scope="col"> Wybierz</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${vaccinationPoints.empty}">
+                    <td colspan="2"> Brak dostepnych punktow szczepien</td>
+                </tr>
+                <tr th:each="vaccinationPoint : ${vaccinationPoints}" th:object="${vaccinationPoint}">
+                    <td><span th:text="${vaccinationPoint.city}"> </span></td>
+                    <td><span th:text="${vaccinationPoint.postalCode}"> </span></td>
+                    <td><span th:text="${vaccinationPoint.street}"> </span></td>
+                    <td>
+                        <a class="btn btn-primary"
+                           th:href="@{/vaccination-points/available-dates/{vaccinationPointId}(vaccinationPointId=${vaccinationPoint.id})}">
+                            wybierz punkt </a>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+
 </body>
 </html>

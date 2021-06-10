@@ -2,39 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Zarezerwowane terminy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 </head>
 <body>
-<h1><a href="http://localhost:8080/index"> HOME </a></h1>
-<br>
-<h2>Zarezerwowane terminy</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <h1><a href="http://localhost:8080/index"> Strona główna </a></h1>
+            <br>
+            <h2>Zarezerwowane terminy</h2>
 
 
-<table>
-    <thead>
-    <tr>
-        <th> Miasto </th>
-        <th> Kod pocztowy </th>
-        <th> Ulica </th>
-        <th> Od </th>
-        <th> Do </th>
-        <th> Zarezerwowane </th>
-        <th> Usun Termin </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${vaccinations.empty}">
-        <td colspan="2"> Brak zarezerwowanych szczepien</td>
-    </tr>
-    <tr th:each="vaccination : ${vaccinations}" th:object="${vaccination}">
-        <td><span th:text="${vaccination.vaccinationPoint.city}"> </span></td>
-        <td><span th:text="${vaccination.vaccinationPoint.postalCode}"> </span></td>
-        <td><span th:text="${vaccination.vaccinationPoint.street}"> </span></td>
-        <td><span th:text="${vaccination.vaccinationReservation.begin}"> </span></td>
-        <td><span th:text="${vaccination.vaccinationReservation.end}"> </span></td>
-        <td><span th:text="${vaccination.vaccinationReservation.reserved}"> </span></td>
-        <td><a th:href="@{/vaccination/delete/{vaccinationId}/{vaccinationReservationId}(vaccinationId=${vaccination.id}, vaccinationReservationId=${vaccination.vaccinationReservation.id})}"> X </a>
-    </tr>
-    </tbody>
-</table>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col"> Miasto</th>
+                    <th scope="col"> Kod pocztowy</th>
+                    <th scope="col"> Ulica</th>
+                    <th scope="col"> Od</th>
+                    <th scope="col"> Do</th>
+                    <th scope="col"> Zarezerwowane</th>
+                    <th scope="col"> Usun Termin</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${vaccinations.empty}">
+                    <td colspan="2"> Brak zarezerwowanych szczepien</td>
+                </tr>
+                <tr th:each="vaccination : ${vaccinations}" th:object="${vaccination}">
+                    <td><span th:text="${vaccination.vaccinationPoint.city}"> </span></td>
+                    <td><span th:text="${vaccination.vaccinationPoint.postalCode}"> </span></td>
+                    <td><span th:text="${vaccination.vaccinationPoint.street}"> </span></td>
+                    <td><span th:text="${vaccination.vaccinationReservation.begin}"> </span></td>
+                    <td><span th:text="${vaccination.vaccinationReservation.end}"> </span></td>
+                    <td><span th:text="${vaccination.vaccinationReservation.reserved}"> </span></td>
+                    <td>
+                        <a class="btn btn-primary"
+                           th:href="@{/vaccination/delete/{vaccinationId}/{vaccinationReservationId}(vaccinationId=${vaccination.id}, vaccinationReservationId=${vaccination.vaccinationReservation.id})}">
+                            odwołaj termin </a>
+                </tr>
+                </tbody>
+            </table></div>
+            <div class="col"></div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+
 </body>
 </html>
